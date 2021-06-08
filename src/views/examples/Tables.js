@@ -88,7 +88,7 @@ const Tables = () => {
                         </Media>
                       </Media>
                     </th>
-                    <td>$2,500 USD</td>
+                    <td>$2,5000000 USD</td>
                     <td>
                       <Badge color="" className="badge-dot mr-4">
                         <i className="bg-warning" />
