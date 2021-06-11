@@ -29,10 +29,10 @@ const UserHeader = () => {
           minHeight: "600px",
           backgroundImage:
             "url(" +
-            require("../../assets/img/theme/profile-cover.jpg").default +
+            require("../../assets/img/brand/telegram.jpg").default +
             ")",
           backgroundSize: "cover",
-          backgroundPosition: "center top",
+          backgroundPosition: '-1px -150px',
         }}
       >
         {/* Mask */}
@@ -41,17 +41,16 @@ const UserHeader = () => {
         <Container className="d-flex align-items-center" fluid>
           <Row>
             <Col lg="7" md="10">
-              <h1 className="display-2 text-white">Hello Jesse</h1>
+              <h1 className="display-2 text-white">Salom</h1>
               <p className="text-white mt-0 mb-5">
-                This is your profile page. You can see the progress you've made
-                with your work and manage your projects or assigned tasks
+                Biror topshiriq yoki masala yechishda qiynalyapsizmi? Bizga murojaat qiling! Albatta, yechim topa olasiz.
               </p>
               <Button
                 color="info"
                 href="#pablo"
                 onClick={(e) => e.preventDefault()}
               >
-                Edit profile
+                Bog'lanish
               </Button>
             </Col>
           </Row>

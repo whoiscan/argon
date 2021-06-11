@@ -22,7 +22,6 @@ import {
     Button,
     Card,
     CardBody,
-    CardHeader,
     Col,
     Form,
     FormGroup,
@@ -38,6 +37,8 @@ class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            username: '',
+            password: '',
             status: ''
         }
         this.onFormSubmit = this.onFormSubmit.bind(this)
@@ -50,15 +51,21 @@ class Login extends Component {
         const options = {
             method: 'POST',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-            body: qs.stringify({username: 'Twenny', password: '12345'})
+            body: qs.stringify({username: this.state.username, password: this.state.password})
         };
 
         try {
             fetch('http://localhost:8081/api/v1/auth/sign/in', options).then((response) => {
-                if (response.status === '200')
-                    this.props.history.push('/admin/index')
-                else
-                    this.props.history.push('/auth/register')
+                if (response.ok) {
+                    response.json().then(json => {
+                        console.log(json);
+                        if (json.status === '200')
+                            this.props.history.push('/api/index')
+                        else
+                            this.props.history.push('/auth/register')
+                    });
+                }
+
             });
         } catch (error) {
             alert('Login Failed. Try Again')
@@ -71,50 +78,9 @@ class Login extends Component {
             <>
                 <Col lg="5" md="7">
                     <Card className="bg-secondary shadow border-0">
-                        <CardHeader className="bg-transparent pb-5">
-                            <div className="text-muted text-center mt-2 mb-3">
-                                <small>Sign in with</small>
-                            </div>
-                            <div className="btn-wrapper text-center">
-                                <Button
-                                    className="btn-neutral btn-icon"
-                                    color="default"
-                                    href="#pablo"
-                                    onClick={(e) => e.preventDefault()}
-                                >
-                <span className="btn-inner--icon">
-                  <img
-                      alt="..."
-                      src={
-                          require("../../assets/img/icons/common/github.svg")
-                              .default
-                      }
-                  />
-                </span>
-                                    <span className="btn-inner--text">Github</span>
-                                </Button>
-                                <Button
-                                    className="btn-neutral btn-icon"
-                                    color="default"
-                                    href="#pablo"
-                                    onClick={(e) => e.preventDefault()}
-                                >
-                <span className="btn-inner--icon">
-                  <img
-                      alt="..."
-                      src={
-                          require("../../assets/img/icons/common/google.svg")
-                              .default
-                      }
-                  />
-                </span>
-                                    <span className="btn-inner--text">Google</span>
-                                </Button>
-                            </div>
-                        </CardHeader>
                         <CardBody className="px-lg-5 py-lg-5">
                             <div className="text-center text-muted mb-4">
-                                <small>Or sign in with credentials</small>
+                                <h3>Avtorizatsiya</h3>
                             </div>
                             <Form role="form">
                                 <FormGroup className="mb-3">
@@ -125,8 +91,8 @@ class Login extends Component {
                                             </InputGroupText>
                                         </InputGroupAddon>
                                         <Input
-                                            placeholder="Email"
-                                            type="email"
+                                            placeholder="Username"
+                                            type="text"
                                             autoComplete="new-email"
                                         />
                                     </InputGroup>
@@ -139,7 +105,7 @@ class Login extends Component {
                                             </InputGroupText>
                                         </InputGroupAddon>
                                         <Input
-                                            placeholder="Password"
+                                            placeholder="Parol"
                                             type="password"
                                             autoComplete="new-password"
                                         />
@@ -155,13 +121,13 @@ class Login extends Component {
                                         className="custom-control-label"
                                         htmlFor=" customCheckLogin"
                                     >
-                                        <span className="text-muted">Remember me</span>
+                                        <span className="text-muted">Eslab qolish</span>
                                     </label>
                                 </div>
                                 <div className="text-center">
                                     <Button className="my-4" color="primary" type="button"
                                             onClick={this.onFormSubmit}>
-                                        Sign in
+                                       Kirish
                                     </Button>
                                 </div>
                             </Form>
@@ -174,7 +140,7 @@ class Login extends Component {
                                 href="#pablo"
                                 onClick={(e) => e.preventDefault()}
                             >
-                                <small>Forgot password?</small>
+                                <small>Parol esingizdan chiqdimi?</small>
                             </a>
                         </Col>
                         <Col className="text-right" xs="6">
@@ -183,7 +149,7 @@ class Login extends Component {
                                 href="#pablo"
                                 onClick={(e) => e.preventDefault()}
                             >
-                                <small>Create new account</small>
+                                <small>Ro'yxatdan o'tish</small>
                             </a>
                         </Col>
                     </Row>

@@ -38,7 +38,7 @@ const Admin = (props) => {
 
   const getRoutes = (routes) => {
     return routes.map((prop, key) => {
-      if (prop.layout === "/admin") {
+      if (prop.layout === "/api") {
         return (
           <Route
             path={prop.layout + prop.path}
@@ -70,7 +70,7 @@ const Admin = (props) => {
         {...props}
         routes={routes}
         logo={{
-          innerLink: "/admin/index",
+          innerLink: "/api/index",
           imgSrc: require("../assets/img/brand/oostaz.PNG").default,
           imgAlt: "...",
         }}
@@ -82,7 +82,7 @@ const Admin = (props) => {
         />
         <Switch>
           {getRoutes(routes)}
-          <Redirect from="*" to="/admin/index" />
+          <Redirect from="*" to="/api/index" />
         </Switch>
         <Container fluid>
           <AdminFooter />

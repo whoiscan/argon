@@ -19,26 +19,21 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import {Card, CardBody, CardHeader, Container, Row} from "reactstrap";
 import Header from "../../components/Headers/Header";
-import qs from 'querystring';
 
-const USERS_REST_API_URL = 'http://localhost:8082/auth/userByInfo';
-const headers = {
-    'Content-Type': 'application/x-www-form-urlencoded'
-}
-
+const TUTORS_LIST = 'http://localhost:8081/api/v1/auth/tutors/ranking';
 export default class Icons extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            users: ''
+            tutors: []
         }
     }
 
     componentDidMount() {
-        axios.post(USERS_REST_API_URL, qs.stringify({username: 'jamaj'}), {headers: headers}).then((response) => {
+        axios.get(TUTORS_LIST).then((response) => {
             console.log(response)
-            this.setState({users: response.data})
+            this.setState({tutors: response.data})
         });
     }
 
@@ -64,24 +59,29 @@ export default class Icons extends Component {
                 <table className="table table-striped">
                     <thead>
                     <tr>
-
-                        <td> User Id</td>
-                        <td> User First Name</td>
-                        <td> User Last Name</td>
-                        <td> User Email Id</td>
+                        <td> Ismi</td>
+                        <td> Fan</td>
+                        <td> Manzil</td>
+                        <td> Umumiy ishlash vaqti</td>
+                        <td> Telefon</td>
+                        <td> Reyting</td>
                     </tr>
 
                     </thead>
                     <tbody>
-
-                    <tr>
-                        <td> No-1</td>
-                        <td>
-                            {this.state.users.name}
-                        </td>
-                    </tr>
-
-
+                    {
+                        this.state.tutors.map(
+                            user =>
+                                <tr>
+                                    <td> {user.name}</td>
+                                    <td> {user.subject}</td>
+                                    <td> {user.address}</td>
+                                    <td> {user.working_hours}</td>
+                                    <td> {user.phone_number}</td>
+                                    <td> {user.ranking}</td>
+                                </tr>
+                        )
+                    }
                     </tbody>
                 </table>
 
