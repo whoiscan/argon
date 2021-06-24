@@ -22,56 +22,80 @@ import Register from "views/examples/Register.js";
 import Login from "views/examples/Login.js";
 import Tables from "views/examples/Tables.js";
 import Icons from "views/examples/Icons.js";
+import Youtube from "./views/examples/Youtube";
+import Landing from "./views/examples/Landing";
+import Cards from "./views/examples/Cards";
 
 var routes = [
-  {
-    path: "/index",
-    name: "Ma'lumotlar",
-    icon: "ni ni-tv-2 text-primary",
-    component: Index,
-    layout: "/api",
-  },
-  {
-    path: "/rating",
-    name: "Ranking",
-    icon: "ni ni-planet text-blue",
-    component: Icons,
-    layout: "/api",
-  },
-  {
-    path: "/maps",
-    name: "Maps",
-    icon: "ni ni-pin-3 text-orange",
-    component: Maps,
-    layout: "/api",
-  },
-  {
-    path: "/tables",
-    name: "O'qituvchilar ro'yxati",
-    icon: "ni ni-bullet-list-67 text-red",
-    component: Tables,
-    layout: "/api",
-  },
-  {
-    path: "/login",
-    name: "Login",
-    icon: "ni ni-key-25 text-info",
-    component: Login,
-    layout: "/auth",
-  },
-  {
-    path: "/user-profile",
-    name: "Profil",
-    icon: "ni ni-circle-08 text-info",
-    component: Profile,
-    layout: "/api",
-  },
-  {
-    path: "/register",
-    name: "Ro'yxatdan o'tish",
-    icon: "ni ni-circle-08 text-pink",
-    component: Register,
-    layout: "/auth",
-  },
+    {
+        path: "/landing",
+        name: "Bosh sahifa",
+        icon: "ni ni-planet text-green",
+        component: Landing,
+        layout: "/auth",
+    },
+    {
+        path: "/card",
+        name: "Onlayn kurslar",
+        icon: "ni ni-bullet-list-67 text-purple",
+        component: Cards,
+        layout: "/api",
+    },
+    {
+        path: "/index",
+        name: "Ma'lumotlar",
+        icon: "ni ni-tv-2 text-primary",
+        component: Index,
+        layout: "/api",
+    },
+    {
+        path: "/video",
+        name: "Darsliklar",
+        icon: "ni ni-planet text-yellow",
+        component: Youtube,
+        layout: "/api",
+    },
+    {
+        path: "/tables",
+        name: "Ustoz qidirish",
+        icon: "ni ni-bullet-list-67 text-red",
+        component: Tables,
+        layout: "/api",
+    },
+
+    {
+        path: "/rating",
+        name: "Reyting",
+        icon: "ni ni-planet text-blue",
+        component: Icons,
+        layout: "/api",
+    },
+    {
+        path: "/maps",
+        name: "Karta",
+        icon: "ni ni-pin-3 text-orange",
+        component: Maps,
+        layout: "/api",
+    },
+
+    {
+        path: "/login",
+        name: "Login",
+        icon: "ni ni-key-25 text-info",
+        component: Login,
+        layout: "/auth",
+    },
+    {
+        path: "/register",
+        name: "Ro'yxatdan o'tish",
+        icon: "ni ni-circle-08 text-pink",
+        component: Register,
+        layout: "/auth",
+    },
+    {
+        path: "/user-profile",
+        component: Profile,
+        layout: "/api",
+    },
 ];
 export default routes;

@@ -25,13 +25,13 @@ import {
     DropdownMenu,
     DropdownToggle,
     Form,
-    FormGroup,
     Input,
     Label,
     Nav,
     Navbar,
     UncontrolledDropdown
 } from "reactstrap";
+import qs from "querystring";
 
 class AdminNavbar extends Component {
     constructor(props) {
@@ -40,15 +40,44 @@ class AdminNavbar extends Component {
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.routeToProfile = this.routeToProfile.bind(this)
     }
+
+
     handleChange(event) {
         this.setState({value: event.target.value});
     }
 
+    routeToProfile(name) {
+        this.props.history.push({
+            pathname: '/api/user-profile',
+            search: '' + name
+        });
+    }
+
     handleSubmit(event) {
         event.preventDefault();
-        console.log(this.state.value)
+        console.log(this.state.value);
+        const options = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: qs.stringify({subject: this.state.value})
+        };
+
+        fetch('http://localhost:8081/api/v1/auth/find/by/subject', options).then((response) => {
+            if (response.ok) {
+                response.json().then(json => {
+                    console.log(json);
+                    if (json.id !== null)
+                        this.props.history.push('/api/user-profile?' + json.id + '')
+                    else
+                        alert("So'rovingiz bo'yicha ma'lumot topilmadi.")
+                });
+            }
+
+        });
     }
+
     render() {
         return (
             <>
@@ -60,10 +89,14 @@ class AdminNavbar extends Component {
                         >
                         </Link>
                         <Form onSubmit={this.handleSubmit}>
-                            <Label>
-                                <Input type="text" value={this.state.value} onChange={this.handleChange} />
-                            </Label>
-                            <Input type="submit" value="Submit" />
+                            <div style={{position: "absolute", right: "200px"}}>
+                                <Label>
+                                    <Input type="text" value={this.state.value} placeholder="Fan nomini kiriting.."
+                                           onChange={this.handleChange}/>
+                                </Label>
+
+                                <Button color="primary" type="submit" value="Qidirish">Qidirish</Button>
+                            </div>
                         </Form>
                         <Nav className="align-items-center d-none d-md-flex" navbar>
                             <UncontrolledDropdown nav>
@@ -116,7 +149,8 @@ class AdminNavbar extends Component {
                     </Container>
                 </Navbar>
             </>
-        );
+        )
+            ;
     };
 }
 

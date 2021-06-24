@@ -47,10 +47,10 @@ export default class Icons extends Component {
                         <div className="col">
                             <Card className="shadow">
                                 <CardHeader className="bg-transparent">
-                                    <h3 className="mb-0">Icons</h3>
+                                    <h3 className="mb-0">Reyting</h3>
                                 </CardHeader>
                                 <CardBody>
-                                    <h1 className="text-center"> Users List</h1>
+                                    <h1 className="text-center"> O'qituvchilar reytingi</h1>
                                 </CardBody>
                             </Card>
                         </div>

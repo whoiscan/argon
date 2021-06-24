@@ -38,14 +38,20 @@ class Login extends Component {
         super(props);
         this.state = {
             username: '',
-            password: '',
-            status: ''
+            password: ''
         }
-        this.onFormSubmit = this.onFormSubmit.bind(this)
+        this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
     }
 
-    onFormSubmit(values) {
-        console.log(values);
+    handleChange(event) {
+        this.setState({[event.target.name]: event.target.value});
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        console.log(this.state.username);
+        console.log(this.state.password);
 
 
         const options = {
@@ -61,8 +67,10 @@ class Login extends Component {
                         console.log(json);
                         if (json.status === '200')
                             this.props.history.push('/api/index')
-                        else
+                        else {
+                            alert(json.message)
                             this.props.history.push('/auth/register')
+                        }
                     });
                 }
 
@@ -82,7 +90,7 @@ class Login extends Component {
                             <div className="text-center text-muted mb-4">
                                 <h3>Avtorizatsiya</h3>
                             </div>
-                            <Form role="form">
+                            <Form role="form" onSubmit={this.handleSubmit}>
                                 <FormGroup className="mb-3">
                                     <InputGroup className="input-group-alternative">
                                         <InputGroupAddon addonType="prepend">
@@ -91,9 +99,11 @@ class Login extends Component {
                                             </InputGroupText>
                                         </InputGroupAddon>
                                         <Input
+                                            name="username"
                                             placeholder="Username"
+                                            value={this.state.username}
                                             type="text"
-                                            autoComplete="new-email"
+                                            onChange={this.handleChange}
                                         />
                                     </InputGroup>
                                 </FormGroup>
@@ -105,9 +115,11 @@ class Login extends Component {
                                             </InputGroupText>
                                         </InputGroupAddon>
                                         <Input
+                                            name="password"
                                             placeholder="Parol"
                                             type="password"
-                                            autoComplete="new-password"
+                                            value={this.state.password}
+                                            onChange={this.handleChange}
                                         />
                                     </InputGroup>
                                 </FormGroup>
@@ -125,9 +137,8 @@ class Login extends Component {
                                     </label>
                                 </div>
                                 <div className="text-center">
-                                    <Button className="my-4" color="primary" type="button"
-                                            onClick={this.onFormSubmit}>
-                                       Kirish
+                                    <Button className="my-4" color="primary" type="submit">
+                                        Kirish
                                     </Button>
                                 </div>
                             </Form>

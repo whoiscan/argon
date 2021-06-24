@@ -25,7 +25,7 @@ const AdminNavbar = () => {
         <>
             <Navbar className="navbar-top navbar-horizontal navbar-dark" expand="md">
                 <Container className="px-4">
-                    <NavbarBrand to="/" tag={Link}>
+                    <NavbarBrand to="/api/index" tag={Link}>
                         <img
                             alt="..."
                             src={

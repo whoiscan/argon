@@ -47,8 +47,7 @@ const UserHeader = () => {
               </p>
               <Button
                 color="info"
-                href="#pablo"
-                onClick={(e) => e.preventDefault()}
+                href="https://t.me/channelSendReceive_bot"
               >
                 Bog'lanish
               </Button>

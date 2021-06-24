@@ -24,9 +24,6 @@ import {
     CardFooter,
     CardHeader,
     Container,
-    DropdownItem,
-    DropdownMenu,
-    DropdownToggle,
     Media,
     Pagination,
     PaginationItem,
@@ -34,8 +31,6 @@ import {
     Progress,
     Row,
     Table,
-    UncontrolledDropdown,
-    UncontrolledTooltip,
 } from "reactstrap";
 // core components
 import Header from "components/Headers/Header.js";
@@ -66,7 +61,7 @@ class Tables extends Component {
     routeToProfile(name) {
         this.props.history.push({
             pathname: '/api/user-profile',
-            search: ''+name
+            search: '' + name
         });
     }
 
@@ -151,38 +146,6 @@ class Tables extends Component {
                                                             </h5>
 
                                                         </Media>
-                                                        {/*<UncontrolledDropdown>*/}
-                                                        {/*    <DropdownToggle*/}
-                                                        {/*        className="btn-icon-only text-light"*/}
-                                                        {/*        href="#pablo"*/}
-                                                        {/*        role="button"*/}
-                                                        {/*        size="sm"*/}
-                                                        {/*        color=""*/}
-                                                        {/*        onClick={(e) => e.preventDefault()}*/}
-                                                        {/*    >*/}
-                                                        {/*        <i className="fas fa-ellipsis-v"/>*/}
-                                                        {/*    </DropdownToggle>*/}
-                                                        {/*    <DropdownMenu className="dropdown-menu-arrow" right>*/}
-                                                        {/*        <DropdownItem*/}
-                                                        {/*            href="#pablo"*/}
-                                                        {/*            onClick={(e) => e.preventDefault()}*/}
-                                                        {/*        >*/}
-                                                        {/*            Action*/}
-                                                        {/*        </DropdownItem>*/}
-                                                        {/*        <DropdownItem*/}
-                                                        {/*            href="#pablo"*/}
-                                                        {/*            onClick={(e) => e.preventDefault()}*/}
-                                                        {/*        >*/}
-                                                        {/*            Another action*/}
-                                                        {/*        </DropdownItem>*/}
-                                                        {/*        <DropdownItem*/}
-                                                        {/*            href="#pablo"*/}
-                                                        {/*            onClick={(e) => e.preventDefault()}*/}
-                                                        {/*        >*/}
-                                                        {/*            Something else here*/}
-                                                        {/*        </DropdownItem>*/}
-                                                        {/*    </DropdownMenu>*/}
-                                                        {/*</UncontrolledDropdown>*/}
                                                     </td>
                                                 </tr>)}
                                     </tbody>
@@ -247,5 +210,6 @@ class Tables extends Component {
             </>
         );
     }
-};
+}
+
 export default Tables;
