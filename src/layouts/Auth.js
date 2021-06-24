@@ -67,12 +67,16 @@ const Auth = (props) => {
             <div className="header-body text-center mb-7">
               <Row className="justify-content-center">
                 <Col lg="5" md="6">
-                  <h1 className="text-white">Salom!</h1>
-                  <h3 className="text-white">
-                    Oostaz platformasiga xush kelibsiz!
-                  </h3>
+                  <h1 className="text-white">Добро пожаловать!</h1>
                 </Col>
               </Row>
+              <img style={{width:"90px",marginLeft:"1%"}}
+
+                   alt="..."
+                   src={
+                     require("../assets/img/brand/uamp.jpg").default
+                   }
+              />
             </div>
           </Container>
           <div className="separator separator-bottom separator-skew zindex-100">

@@ -19,7 +19,7 @@
 import React from "react";
 
 // reactstrap components
-import { NavItem, NavLink, Nav, Container, Row, Col } from "reactstrap";
+import {Col, Container, Nav, NavItem, NavLink, Row} from "reactstrap";
 
 const Login = () => {
   return (
@@ -30,12 +30,6 @@ const Login = () => {
             <Col xl="6">
               <div className="copyright text-center text-xl-left text-muted">
                 © {new Date().getFullYear()}{" "}
-                <a
-                  className="font-weight-bold ml-1"
-                  target="_blank"
-                >
-                  Islomov Jamhurbek
-                </a>
               </div>
             </Col>
             <Col xl="6">
@@ -44,14 +38,14 @@ const Login = () => {
                   <NavLink
                     target="_blank"
                   >
-                    Oostaz
+                    UzAutoMotors Powertrain
                   </NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink
                     target="_blank"
                   >
-                    Biz haqimizda
+                    О нас
                   </NavLink>
                 </NavItem>
               </Nav>

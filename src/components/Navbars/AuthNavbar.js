@@ -25,11 +25,11 @@ const AdminNavbar = () => {
         <>
             <Navbar className="navbar-top navbar-horizontal navbar-dark" expand="md">
                 <Container className="px-4">
-                    <NavbarBrand to="/api/index" tag={Link}>
+                    <NavbarBrand to="/auth/login" tag={Link}>
                         <img
                             alt="..."
                             src={
-                                require("../../assets/img/brand/oostaz.PNG").default
+                                require("../../assets/img/brand/uamp.jpg").default
                             }
                         />
                     </NavbarBrand>
@@ -62,17 +62,17 @@ const AdminNavbar = () => {
                             <NavItem>
                                 <NavLink
                                     className="nav-link-icon"
-                                    to="/auth/register"
+                                    to="/auth/login"
                                     tag={Link}
                                 >
                                     <i className="ni ni-circle-08"/>
-                                    <span className="nav-link-inner--text">Ro'yxatdan o'tish</span>
+                                    <span className="nav-link-inner--text">Регистрация</span>
                                 </NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink className="nav-link-icon" to="/auth/login" tag={Link}>
                                     <i className="ni ni-key-25"/>
-                                    <span className="nav-link-inner--text">Kirish</span>
+                                    <span className="nav-link-inner--text">Вход</span>
                                 </NavLink>
                             </NavItem>
                         </Nav>

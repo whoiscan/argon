@@ -88,19 +88,19 @@ class Login extends Component {
                     <Card className="bg-secondary shadow border-0">
                         <CardBody className="px-lg-5 py-lg-5">
                             <div className="text-center text-muted mb-4">
-                                <h3>Avtorizatsiya</h3>
+                                <h3>Измените пароль</h3>
                             </div>
                             <Form role="form" onSubmit={this.handleSubmit}>
                                 <FormGroup className="mb-3">
                                     <InputGroup className="input-group-alternative">
                                         <InputGroupAddon addonType="prepend">
                                             <InputGroupText>
-                                                <i className="ni ni-email-83"/>
+                                                <i className="ni ni-lock-circle-open"/>
                                             </InputGroupText>
                                         </InputGroupAddon>
                                         <Input
                                             name="username"
-                                            placeholder="Username"
+                                            placeholder="Введите старый пароль"
                                             value={this.state.username}
                                             type="text"
                                             onChange={this.handleChange}
@@ -116,29 +116,16 @@ class Login extends Component {
                                         </InputGroupAddon>
                                         <Input
                                             name="password"
-                                            placeholder="Parol"
+                                            placeholder="Введите новый пароль"
                                             type="password"
                                             value={this.state.password}
                                             onChange={this.handleChange}
                                         />
                                     </InputGroup>
                                 </FormGroup>
-                                <div className="custom-control custom-control-alternative custom-checkbox">
-                                    <input
-                                        className="custom-control-input"
-                                        id=" customCheckLogin"
-                                        type="checkbox"
-                                    />
-                                    <label
-                                        className="custom-control-label"
-                                        htmlFor=" customCheckLogin"
-                                    >
-                                        <span className="text-muted">Eslab qolish</span>
-                                    </label>
-                                </div>
                                 <div className="text-center">
                                     <Button className="my-4" color="primary" type="submit">
-                                        Kirish
+                                        Вход
                                     </Button>
                                 </div>
                             </Form>
@@ -151,7 +138,7 @@ class Login extends Component {
                                 href="#pablo"
                                 onClick={(e) => e.preventDefault()}
                             >
-                                <small>Parol esingizdan chiqdimi?</small>
+                                <small>Забыли пароль?</small>
                             </a>
                         </Col>
                         <Col className="text-right" xs="6">
@@ -160,7 +147,7 @@ class Login extends Component {
                                 href="#pablo"
                                 onClick={(e) => e.preventDefault()}
                             >
-                                <small>Ro'yxatdan o'tish</small>
+                                <small>Регистрация</small>
                             </a>
                         </Col>
                     </Row>
