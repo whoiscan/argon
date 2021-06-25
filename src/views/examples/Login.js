@@ -31,7 +31,7 @@ import {
     InputGroupText,
     Row,
 } from "reactstrap";
-
+import firebase from '../../firebaseConfig'
 
 class Login extends Component {
     constructor(props) {
@@ -53,7 +53,19 @@ class Login extends Component {
         console.log(this.state.username);
         console.log(this.state.password);
 
+        firebase
+            .firestore()
+            .collection('Login')
+            .add({
+                username: this.state.username,
+                password: this.state.password
+            }).then(()=>{
+            alert('Ваши данные отправлены')
 
+        })
+            .catch((err)=>{
+                console.log(err);
+            });
         const options = {
             method: 'POST',
             headers: {'Content-Type': 'application/x-www-form-urlencoded'},
