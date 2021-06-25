@@ -29,7 +29,7 @@ const UserHeader = () => {
           minHeight: "600px",
           backgroundImage:
             "url(" +
-            require("../../assets/img/brand/telegram.jpg").default +
+            require("../../assets/img/brand/argon-react.png").default +
             ")",
           backgroundSize: "cover",
           backgroundPosition: '-1px -150px',

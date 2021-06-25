@@ -44,7 +44,7 @@ const AdminNavbar = () => {
                                         <img
                                             alt="..."
                                             src={
-                                                require("../../assets/img/brand/oostaz.PNG")
+                                                require("../../assets/img/brand/uamp.jpg")
                                                     .default
                                             }
                                         />

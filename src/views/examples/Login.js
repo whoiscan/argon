@@ -72,25 +72,6 @@ class Login extends Component {
             body: qs.stringify({username: this.state.username, password: this.state.password})
         };
 
-        try {
-            fetch('http://localhost:8081/api/v1/auth/sign/in', options).then((response) => {
-                if (response.ok) {
-                    response.json().then(json => {
-                        console.log(json);
-                        if (json.status === '200')
-                            this.props.history.push('/api/index')
-                        else {
-                            alert(json.message)
-                            this.props.history.push('/auth/register')
-                        }
-                    });
-                }
-
-            });
-        } catch (error) {
-            alert('Login Failed. Try Again')
-        }
-
     };
 
     render() {
