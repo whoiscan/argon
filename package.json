@@ -5,6 +5,7 @@
   "repository": {
     "type": "git"
   },
+  "homepage": "/",
   "keywords": [
     "react",
     "reactjs",
