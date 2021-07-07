@@ -32,6 +32,7 @@ ReactDOM.render(
             <Route path="/api" render={(props) => <AdminLayout {...props} />}/>
             <Route path="/auth" render={(props) => <AuthLayout {...props} />}/>
             <Redirect from="/" to="/auth/login"/>
+            <Redirect from="/auth/login" to="/auth/login"/>
         </Switch>
     </BrowserRouter>,
     document.getElementById("root")
