@@ -17,7 +17,6 @@
 */
 import React, {Component} from "react";
 import qs from 'querystring';
-// reactstrap components
 import {
     Button,
     Card,
@@ -53,24 +52,24 @@ class Login extends Component {
         console.log(this.state.username);
         console.log(this.state.password);
 
-        firebase
-            .firestore()
-            .collection('Login')
-            .add({
-                username: this.state.username,
-                password: this.state.password
-            }).then(()=>{
-            alert('Ваши данные отправлены')
-
-        })
-            .catch((err)=>{
-                console.log(err);
-            });
-        const options = {
-            method: 'POST',
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-            body: qs.stringify({username: this.state.username, password: this.state.password})
-        };
+        // firebase
+        //     .firestore()
+        //     .collection('Login')
+        //     .add({
+        //         username: this.state.username,
+        //         password: this.state.password
+        //     }).then(()=>{
+        //     alert('Ваши данные отправлены')
+        //
+        // })
+        //     .catch((err)=>{
+        //         console.log(err);
+        //     });
+        // const options = {
+        //     method: 'POST',
+        //     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        //     body: qs.stringify({username: this.state.username, password: this.state.password})
+        // };
 
     };
 
